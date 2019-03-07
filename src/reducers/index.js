@@ -1,3 +1,12 @@
+import { combineReducers } from 'redux'
+import { pageReducer } from './page'
+import { userReducer } from './user'
+
+export const rootReducer = combineReducers({
+	page: pageReducer,
+	user: userReducer,
+})
+
 export const initialState = {
 	user: {
 		//вложили в user вместо строки объект
@@ -7,6 +16,6 @@ export const initialState = {
 	},
 }
 
-export function rootReducer(state = initialState) {
-	return state
-}
+// export function rootReducer(state = initialState) {
+// 	return state
+// }
