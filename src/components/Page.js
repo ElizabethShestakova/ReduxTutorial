@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 export class Page extends React.Component {
 	onBtnClick = e => {
 		const year = +e.currentTarget.innerText
-		this.props.setYear(year)
+		this.props.getPhotos(year)
 	}
 
 	render() {
-		const { year, photos } = this.props
+		const { year, photos, isFetching } = this.props
 		return (
 			<div className="ib page">
 				<button className="btn" onClick={this.onBtnClick}>
@@ -27,9 +27,13 @@ export class Page extends React.Component {
 					2014
 				</button>
 				<h3>{year} год</h3>
-				<p className="text">
-					У тебя {photos.length} фото за {year} год
-				</p>
+				{isFetching ? (
+					<p>Загрузка...</p>
+				) : (
+					<p className="text">
+						У тебя {photos.length} фото за {year} год
+					</p>
+				)}
 			</div>
 		)
 	}
@@ -38,5 +42,6 @@ export class Page extends React.Component {
 Page.propTypes = {
 	year: PropTypes.number.isRequired,
 	photos: PropTypes.array.isRequired,
-	setYear: PropTypes.func.isRequired, //добавили новое свойство в PropTypes
+	getPhotos: PropTypes.func.isRequired, //добавили новое свойство в PropTypes
+	isFetching: PropTypes.bool.isRequired,
 }
