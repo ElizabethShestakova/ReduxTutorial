@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 
 export class Page extends React.Component {
 	onBtnClick = e => {
+		document.querySelectorAll('.btn').forEach(item => {
+			item.classList.remove('btn-active')
+		})
+		e.currentTarget.classList.add('btn-active')
 		const year = +e.currentTarget.innerText
 		this.props.getPhotos(year)
 	}
@@ -11,7 +15,7 @@ export class Page extends React.Component {
 		const { year, photos, isFetching } = this.props
 		return (
 			<div className="ib page">
-				<button className="btn" onClick={this.onBtnClick}>
+				<button className="btn btn-active" onClick={this.onBtnClick}>
 					2018
 				</button>
 				<button className="btn" onClick={this.onBtnClick}>

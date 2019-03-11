@@ -101,3 +101,6 @@ margin: 5px;
 .btn:hover {
 background-color: #68afff
 }
+.btn-active {
+  background-color: #68ff75
+}
