@@ -11,13 +11,11 @@ class App extends Component {
 		const { user, page, getPhotosAction, handleLoginAction } = this.props
 		return (
 			<div className="row">
-				{/* <header className="App-header">
-					<h1 className="App-title">Мой топ фото</h1>
-				</header> */}
 				<Page
 					photos={page.photos}
 					year={page.year}
 					isFetching={page.isFetching}
+					error={page.error}
 					getPhotos={getPhotosAction}
 				/>
 				<User

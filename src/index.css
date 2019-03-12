@@ -104,3 +104,22 @@ background-color: #68afff
 .btn-active {
   background-color: #68ff75
 }
+.error {
+  color: red;
+}
+.photos {
+  display: flex;
+  flex-wrap: wrap;  
+}
+.photo {    
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  position: relative;
+  margin: 5px;
+}
+.photo__likes {
+  position: absolute;
+  bottom: 0px;
+  left: 45%;
+}
